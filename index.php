@@ -1,34 +1,40 @@
+<?php
+$numbers = $_POST['num'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jana Sifir</title>
 </head>
 
 <body>
     <center>
         <h3>JADUAL DARAB</h3>
-        <form method="POST">
-            Masukkan nombor:
-            <input type="number" name="number">
+        <form method="post">
+            <label for="num">Masukkan nombor:</label>
+            <input type="number" name="num" id="num" min="0" value="<?php echo isset($numbers) ? $numbers : ''; ?>" onchange="this.form.submit()">
         </form>
-        <p>Selepas Memasukan Nombor sila tekan Enter</p>
 
     </center>
+    <?php
+    if (isset($numbers)) {
+        $num = intval($numbers);
+        if ($num >= 1 && $num <=13) {
+            echo "<table>";
+            for ($i = 1; $i <= 12; $i++) {
+                $result = $i * $num;
+                echo "<tr><td>{$i} x {$num}</td><td>{$result}</td></tr>";
+            }
+            echo "</table>";
+        } else {
+            echo "<script>alert('Please enter a number between 1 and 13.')</script>";
+        }
+        
+    }
+    ?>
+
 </body>
 
 </html>
-
-<?php
-if ($_POST) {
-    $num = $_POST["number"];
-    echo nl2br("<p style='text-align: center ;'> Jadual Pendaraban bagi $num: </p>");
-
-    for ($i = 1; $i <= 12; $i++) {
-        echo ("<p style='text-align: center;'> $i" . " X " . "$num" . " = " . $i * $num . "</p>");
-    }
-}
-?>
