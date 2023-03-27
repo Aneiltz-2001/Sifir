@@ -1,5 +1,9 @@
 <?php
-$numbers = $_POST['num'];
+if(isset($_POST['num'])){
+    $numbers = $_POST['num'];
+} else {
+    $numbers = 1;
+}
 ?>
 
 <!DOCTYPE html>
