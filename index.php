@@ -16,7 +16,6 @@ $numbers = $_POST['num'];
             <label for="num">Masukkan nombor:</label>
             <input type="number" name="num" id="num" min="0" value="<?php echo isset($numbers) ? $numbers : ''; ?>" onchange="this.form.submit()">
         </form>
-
     </center>
     <?php
     if (isset($numbers)) {
