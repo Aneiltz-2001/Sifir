@@ -28,7 +28,7 @@ if(isset($_POST['num'])){
             echo "<table>";
             for ($i = 1; $i <= 12; $i++) {
                 $result = $i * $num;
-                echo "<tr><td>{$i} x {$num}</td><td>{$result}</td></tr>";
+                echo "<tr><td>{$i} x {$num}</td><td> = {$result}</td></tr>";
             }
             echo "</table>";
         } else {
